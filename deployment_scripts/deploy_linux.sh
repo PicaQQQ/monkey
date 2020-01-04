@@ -4,8 +4,11 @@ exists() {
   command -v "$1" >/dev/null 2>&1
 }
 
+config_branch=${2:-"develop"}
+config_url="https://raw.githubusercontent.com/guardicore/monkey/"$config_branch"/deployment_scripts/config"
+
 if exists curl; then
-  curl source <(curl -s https://raw.githubusercontent.com/guardicore/monkey/develop/deployment_scripts/config)
+  curl source <(curl -s "$config_url")
 else
   echo 'Your system does not have curl, exiting'
   exit 1
