@@ -2,7 +2,8 @@
 ## Windows
 
 Before running the script you must have git installed.<br>
-Cd to scripts directory and use the scripts.<br>
+`Invoke-WebRequest wget https://raw.githubusercontent.com/guardicore/monkey/develop/deployment_scripts/deploy_windows.ps1 -OutFile deploy_windows.ps1`
+Then execute the resulting script with your shell. 
 First argument is an empty directory (script can create one) and second is branch you want to clone.
 Example usages:<br>
 ./run_script.bat (Sets up monkey in current directory under .\infection_monkey)<br>
@@ -16,7 +17,6 @@ Don't forget to add python to PATH or do so while installing it via this script.
 Linux deployment script is meant for Ubuntu 16.x machines.
 You must have root permissions, but don't run the script as root.<br>
 `wget https://raw.githubusercontent.com/guardicore/monkey/develop/deployment_scripts/deploy_linux.sh`
-
 Then execute the resulting script with your shell. 
 First argument should be an absolute path of an empty directory (script will create one if doesn't exist, default is ./infection_monkey).
 Second parameter is the branch you want to clone (develop by default).
