@@ -1,9 +1,15 @@
 #!/bin/bash
-source config
 
 exists() {
   command -v "$1" >/dev/null 2>&1
 }
+
+if exists curl; then
+  curl source <(curl -s https://raw.githubusercontent.com/guardicore/monkey/develop/deployment_scripts/config)
+else
+  echo 'Your system does not have curl, exiting'
+  exit 1
+fi
 
 # Setup monkey either in dir required or current dir
 monkey_home=${1:-$(pwd)}
